@@ -1,8 +1,11 @@
 # Instancia para o Airflow + Spark
 resource "aws_instance" "data-engineering-prod" {
-    ami = var.amis["us-east-1"]
-    instance_type = var.type-ec2["data-engineering"]
-    key_name = var.key
+    ami                  = var.amis["us-east-1"]
+    instance_type        = var.type-ec2["data-engineering"]
+    key_name             = var.key
+
+    iam_instance_profile = data.aws_iam_role.EMR_EC2_DefaultRole.name
+
 
     user_data = file("./setup_instance_data_engineering.sh")
 
@@ -48,9 +51,13 @@ resource "aws_network_interface_sg_attachment" "sg-attach-data-engineering-ssh" 
 
 # Instância para o Backend, Web e DB
 resource "aws_instance" "application-prod" {
-    ami = var.amis["us-east-1"]
-    instance_type = var.type-ec2["application"]
-    key_name = var.key
+    ami                  = var.amis["us-east-1"]
+    instance_type        = var.type-ec2["application"]
+    key_name             = var.key
+
+    iam_instance_profile = data.aws_iam_role.EMR_EC2_DefaultRole.name
+
+
 
     user_data = file("./setup_instance_web.sh")
 
