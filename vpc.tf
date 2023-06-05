@@ -213,3 +213,14 @@ resource "aws_security_group" "allow-sg-db" {
         Environment = "prod"
     }
 }
+
+
+resource "aws_eip" "eip-public-application" {
+    instance                  = aws_instance.application-prod.id
+    depends_on                = [aws_internet_gateway.igw-criminix-public-prod]
+    tags = {
+        Name = "eip-public-application"
+        Terraform   = "true"
+        Environment = "prod"
+    }
+}
