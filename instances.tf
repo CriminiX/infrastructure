@@ -40,13 +40,13 @@ resource "aws_network_interface" "ntw-interface-ec2-data-engineering-prod" {
 }
 
 resource "aws_network_interface_sg_attachment" "sg-attach-data-engineering-web" {
-  security_group_id    = aws_security_group.allow-sg-web.id
-  network_interface_id = aws_network_interface.ntw-interface-ec2-data-engineering-prod.id
+    security_group_id    = aws_security_group.allow-sg-web.id
+    network_interface_id = aws_network_interface.ntw-interface-ec2-data-engineering-prod.id
 }
 
 resource "aws_network_interface_sg_attachment" "sg-attach-data-engineering-ssh" {
-  security_group_id    = aws_security_group.allow-sg-ssh.id
-  network_interface_id = aws_network_interface.ntw-interface-ec2-data-engineering-prod.id
+    security_group_id    = aws_security_group.allow-sg-ssh.id
+    network_interface_id = aws_network_interface.ntw-interface-ec2-data-engineering-prod.id
 }
 
 # Instância para o Backend, Web e DB
@@ -56,8 +56,6 @@ resource "aws_instance" "application-prod" {
     key_name             = var.key
 
     iam_instance_profile = data.aws_iam_role.EMR_EC2_DefaultRole.name
-
-
 
     user_data = file("./setup_instance_web.sh")
 
@@ -92,11 +90,16 @@ resource "aws_network_interface" "ntw-interface-ec2-application-prod" {
 }
 
 resource "aws_network_interface_sg_attachment" "sg-attach-application-web-prod" {
-  security_group_id    = aws_security_group.allow-sg-web.id
-  network_interface_id = aws_network_interface.ntw-interface-ec2-application-prod.id
+    security_group_id    = aws_security_group.allow-sg-web.id
+    network_interface_id = aws_network_interface.ntw-interface-ec2-application-prod.id
 }
 
 resource "aws_network_interface_sg_attachment" "sg-attach-application-ssh-prod" {
-  security_group_id    = aws_security_group.allow-sg-ssh.id
-  network_interface_id = aws_network_interface.ntw-interface-ec2-application-prod.id
+    security_group_id    = aws_security_group.allow-sg-ssh.id
+    network_interface_id = aws_network_interface.ntw-interface-ec2-application-prod.id
+}
+
+resource "aws_network_interface_sg_attachment" "sg-attach-application-db" {
+    security_group_id    = aws_security_group.allow-sg-db.id
+    network_interface_id = aws_network_interface.ntw-interface-ec2-application-prod.id
 }

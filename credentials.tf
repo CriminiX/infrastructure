@@ -2,9 +2,9 @@ variable "aws_credentials" {
     type = map(string)
 
     default = {
-        access_key = "ASIAWUJAKGXYOIC3F5VG"
-        secret_key = "22Moqxc2aKfSTUC2ORvOmh9TqnWRIFf57/jnw77k"
-        token      = "FwoGZXIvYXdzEPD//////////wEaDDYIKpeYfR8LWr/TDyK+AR9fL5cSbNIO/Q8uw4PdmZ4gW6VkWMV2y6x3d+5dAVLtddmAOx26D1CSS/RdJjRNrYQJDCbgNcNJUxG7r3pZXLNkYG7HYZgcGHlvbRPjFqYOg0/ifRP8fWO1dNfAmYQxVbCTLjRFl3padZD7RxrhXIXhVxJHYvWAxoonz5WE4Sv3nB/jVvDOzmu8AiGnv53nydYUwyTyuKIX4zTlbo5gUef7XzM1AeueK48sozIdfVFiu0V3pzs+/R4N8U16Iw8osvv1owYyLfirkPNiGncj9ehClKIXG1qGWWuHwtmppa2eOzU5uVkrGWCM2fhmdxCPCfqm2A=="
+        access_key = "ASIAWUJAKGXYKMV3UD5T"
+        secret_key = "DLt8k9Dv2yPbPdP1g8z2r8HlwrqU/g4Bv/zKfvhD"
+        token      = "FwoGZXIvYXdzEGkaDDefWuPf64g4Quf9jiK+Abb/8ucrd3q1ZC20OIyx0hldHKnrMGNLTHBvLU1jEKSEncWDbQXkYMHbWUGTFCt+DAK1yJqntbzSaLsoeB0vtolUOyrbS/1cmyRjXQx6BVZYLINIF1jdyDDUT0D3gHmd/3rxRuGSTBg5udYEDob5sbj9mX311SdgvsBanVI1Ou5h9UajK58904SI7uwA5oBNZmt9V6PxTg8NyBGxJ8qdF1ASPZS3AWtFOOL1mswSHff/xahLkqDIFtSUFHqGtHsok/rIpAYyLcebwgpZOWaeTcVfyvKZC+3b/lkfkHs2wNNZouEwDCyLBosUL6qTLajv3olW9Q=="
     }
 }
 
