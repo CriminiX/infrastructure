@@ -7,7 +7,7 @@ resource "aws_instance" "data-engineering-prod" {
     iam_instance_profile = data.aws_iam_role.EMR_EC2_DefaultRole.name
 
 
-    user_data = file("../user-data/setup_instance_data_engineering.sh")
+    user_data = file("./user-data/setup_instance_data_engineering.sh")
 
     root_block_device {
         volume_size           = 20
@@ -57,7 +57,7 @@ resource "aws_instance" "application-prod" {
 
     iam_instance_profile = data.aws_iam_role.EMR_EC2_DefaultRole.name
 
-    user_data = file("../user-data/setup_instance_web.sh")
+    user_data = file("./user-data/setup_instance_data_engineering.sh")
 
     root_block_device {
         volume_size           = 20
