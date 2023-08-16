@@ -17,7 +17,10 @@ resource "azurerm_network_interface" "nic_vm_applications" {
 
     depends_on = [ azurerm_public_ip.ip_public_vm-applications ]
 }
-
+resource "azurerm_network_interface_security_group_association" "assoc-nic-vm-applications" {
+    network_interface_id      = azurerm_network_interface.nic_vm_applications.id
+    network_security_group_id = azurerm_network_security_group.nsg_prod.id
+}
 
 resource "azurerm_public_ip" "ip_public_vm-applications" {
     name                = "ip-public-vm-applications"
@@ -25,8 +28,6 @@ resource "azurerm_public_ip" "ip_public_vm-applications" {
     resource_group_name = azurerm_resource_group.rg_prod.name
     allocation_method   = "Static"
 }
-
-
 resource "azurerm_linux_virtual_machine" "vm_applications_prod" {
     name                  = "vm-applications-prod"
     location              = azurerm_resource_group.rg_prod.location
