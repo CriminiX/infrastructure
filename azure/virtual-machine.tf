@@ -33,7 +33,7 @@ resource "azurerm_linux_virtual_machine" "vm_applications_prod" {
     location              = azurerm_resource_group.rg_prod.location
     resource_group_name   = azurerm_resource_group.rg_prod.name
     network_interface_ids = [ azurerm_network_interface.nic_vm_applications.id ]
-    size                  = "Standard_B2s"
+    size                  = "Standard_B2ms"
 
     admin_username = "admincriminix"
     disable_password_authentication = true
